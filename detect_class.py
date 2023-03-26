@@ -14,6 +14,9 @@ from utils.general import check_img_size, check_requirements, check_imshow, non_
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized, TracedModel
 
+parser=argparse.ArgumentParser()
+opt=parser.parse_args()
+
 class Detection:
 
     def __init__(self, source="inference/images", weights="yolov7.pt", img_size=640, conf_thres=0.25, iou_thres=0.45, device="", view_img=False, save_txt=False, save_conf=False, nosave=False, classes=80, agnostic_nms=False, augment=False, update=False, project="runs/detect", name="exp", exist_ok=False, no_trace=False):
@@ -38,29 +41,31 @@ class Detection:
 
         self.save_img=not nosave and not source.endswith('.txt')
         self.webcam=source.isnumeric() or source.endswith('.txt') or source.lower().startswith(('rtsp://', 'rtmp://', 'http://', 'https://'))
+        
+       # parser=argparse.ArgumentParser()
+       # opt=parser.parse_args()
 
 
-
-    def run():
+    def run(self):
         with torch.no_grad():
             if self.update:  # update all models (to fix SourceChangeWarning)
                 for self.weights in ['yolov7.pt']:
-                    detect()
+                    self.detect()
                     strip_optimizer(self.weights)
             else:
-                detect()
+                self.detect()
 
 # I have removed save_img=False from detect function signature
-    def detect():
+    def detect(self):
 
         # Directories
-        self.save_dir = Path(increment_path(Path(self.project) / self.name, self.exist_ok))  # increment run
-        (self.save_dir / 'labels' if self.save_txt else self.save_dir).mkdir(parents=True, self.exist_ok=True)  # make dir
+        save_dir = Path(increment_path(Path(self.project) / self.name, self.exist_ok))  # increment run
+        (save_dir / 'labels' if self.save_txt else save_dir).mkdir(parents=True, exist_ok=True)  # make dir
 
         # Initialize
         set_logging()
         self.device = select_device(self.device)
-        half = device.type != 'cpu'  # half precision only supported on CUDA
+        half = self.device.type != 'cpu'  # half precision only supported on CUDA
 
         # Load model
         model = attempt_load(self.weights, map_location=self.device)  # load FP32 model
@@ -68,10 +73,10 @@ class Detection:
         self.imgsz = check_img_size(self.imgsz, s=stride)  # check img_size
 
         if self.trace:
-            self.model = TracedModel(self.model, self.device, self.img_size)
+            model = TracedModel(model, self.device, self.imgsz)
 
-        if self.half:
-            self.model.half()  # to FP16
+        if half:
+            model.half()  # to FP16
 
         # Second-stage classifier
         classify = False
@@ -189,7 +194,7 @@ class Detection:
                         vid_writer.write(im0)
 
         if self.save_txt or self.save_img:
-            s = f"\n{len(list(save_dir.glob('labels/*.txt')))} labels saved to {save_dir / 'labels'}" if save_txt else ''
+            s = f"\n{len(list(save_dir.glob('labels/*.txt')))} labels saved to {save_dir / 'labels'}" if self.save_txt else ''
             #print(f"Results saved to {save_dir}{s}")
 
         print(f'Done. ({time.time() - t0:.3f}s)')
