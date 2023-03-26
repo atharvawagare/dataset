@@ -1,4 +1,3 @@
-import argparse
 import time
 from pathlib import Path
 
@@ -13,9 +12,6 @@ from utils.general import check_img_size, check_requirements, check_imshow, non_
     scale_coords, xyxy2xywh, strip_optimizer, set_logging, increment_path
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized, TracedModel
-
-parser=argparse.ArgumentParser()
-opt=parser.parse_args()
 
 class Detection:
 
@@ -42,10 +38,6 @@ class Detection:
         self.save_img=not nosave and not source.endswith('.txt')
         self.webcam=source.isnumeric() or source.endswith('.txt') or source.lower().startswith(('rtsp://', 'rtmp://', 'http://', 'https://'))
         
-       # parser=argparse.ArgumentParser()
-       # opt=parser.parse_args()
-
-
     def run(self):
         with torch.no_grad():
             if self.update:  # update all models (to fix SourceChangeWarning)
