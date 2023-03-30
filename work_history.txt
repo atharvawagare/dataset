@@ -1,0 +1,69 @@
+ 1923  2023-03-27 14:58:00    nvidia-smi
+ 1924  2023-03-27 14:58:44    ls
+ 1925  2023-03-27 14:58:49    cd RDW
+ 1926  2023-03-27 14:58:52    ls
+ 1927  2023-03-27 14:59:22    cd ..
+ 1928  2023-03-27 14:59:37    cd Containers
+ 1929  2023-03-27 14:59:39    ls
+ 1930  2023-03-27 14:59:42    cd ..
+ 1931  2023-03-27 14:59:54    sudo docker start student1
+ 1932  2023-03-27 15:00:01    sudo docker start stud1
+ 1933  2023-03-27 15:00:16    sudo docker ls
+ 1934  2023-03-27 15:00:27    sudo docker ps
+ 1935  2023-03-27 15:01:05    cd RDW
+ 1936  2023-03-27 15:01:10    sudo docker start student1
+ 1937  2023-03-27 15:01:23    sudo docker start stud1
+ 1938  2023-03-27 15:01:29    ls
+ 1939  2023-03-27 15:01:40    sudo docker start Student1
+ 1940  2023-03-27 15:03:01    sudo dockerstart Student1
+ 1941  2023-03-27 15:05:01    sudo docker start $Student1
+ 1942  2023-03-27 15:07:30    sudo docker exec -it Student1 bash
+ 1943  2023-03-27 15:07:41    sudo docker exec -it $Student1 bash
+ 1944  2023-03-27 15:08:29    jupyter
+ 1945  2023-03-27 15:09:17    sudo snap install jupyter
+ 1946  2023-03-27 15:09:45    jupyter prog1.py
+ 1947  2023-03-27 15:12:24    nvidia -docker run -it -v
+ 1948  2023-03-27 15:12:36    sudo nvidia -docker run -it -v
+ 1949  2023-03-27 15:13:06    sudo nvidia-docker run -it -v
+ 1950  2023-03-27 15:14:34    nvcr/nvidia/tensorflow:23.01-tf2.py3
+ 1951  2023-03-27 15:14:41    nvcr.io/nvidia/tensorflow:23.01-tf2.py3
+ 1952  2023-03-27 15:18:22    docker pull nvcr.io/nvidia/tensorflow:23.01-tf2.py3
+ 1953  2023-03-27 15:18:44    docker pull nvcr.io/nvidia/tensorflow:23.01-tf2 -py3
+ 1954  2023-03-27 15:19:14    docker pull nvcr.io/nvidia/tensorflow:23.01.py3
+ 1955  2023-03-27 15:19:59    docker pull nvcr.io/nvidia/tensorflow:23.01-tf2-py3
+ 1956  2023-03-27 15:22:06    jupyter notebook
+ 1957  2023-03-27 15:24:25    jupyter notebook --ip=0.0.0.0 --allow -root
+ 1958  2023-03-27 15:24:45    jupyter notebook --ip=0.0.0.0--allow-root
+ 1959  2023-03-27 15:41:27    docker images
+ 1960  2023-03-27 15:48:23    docker pull nvcr.io/nvidia/tensorflow:23.02-tf1-py3
+ 1961  2023-03-27 16:04:17    docker images
+ 1962  2023-03-27 16:07:51    ls
+ 1963  2023-03-27 16:08:53    mkdir test
+ 1964  2023-03-27 16:08:55    pwd
+ 1965  2023-03-27 16:09:03    cd test
+ 1966  2023-03-27 16:10:26    cd ..
+ 1967  2023-03-27 16:10:27    ls
+ 1968  2023-03-27 16:14:03    cd test | nvidia-docker run -it -v/home/brain/RDW/:/workspace/test123/ --name studcontainer -e NVIDIA_VISIBLE_DEVICES=3 -p 6666:8888 nvcr.io/nvidia/tensorflow:23.02-tf1-py3
+ 1969  2023-03-27 16:14:19    cd test
+ 1970  2023-03-27 16:24:00    cd test | nvidia-docker run -it -v/home/brain/RDW/:/workspace/test123/ --name studcontainer -e NVIDIA_VISIBLE_DEVICES=3 -p 9999:8888 nvcr.io/nvidia/tensorflow:23.02-tf1-py3
+ 1971  2023-03-27 16:24:08    cd test
+ 1972  2023-03-27 16:36:22    sudo docker start RDW_STUD1
+ 1973  2023-03-27 16:36:30    ls
+ 1974  2023-03-27 16:36:42    cd RDW
+ 1975  2023-03-27 16:36:44    ls
+ 1976  2023-03-27 16:36:50    cd test/
+ 1977  2023-03-27 16:36:53    ls
+ 1978  2023-03-27 16:37:59    nvidia-smi
+ 1979  2023-03-27 20:52:09    ls
+ 1980  2023-03-27 20:52:17    cd RDW/
+ 1981  2023-03-27 20:52:19    ls
+ 1982  2023-03-27 20:52:31    cat prog1_RCOEM.py 
+ 1983  2023-03-27 20:53:03    cat Student1/prog2_RCOEM.py 
+ 1984  2023-03-27 20:53:22    ls Student1/
+ 1985  2023-03-27 20:53:42    cat Student1/prog-test.py 
+ 1986  2023-03-27 21:37:15    vim Student1/prog-test.py 
+ 1987  2023-03-27 21:38:47    ls
+ 1988  2023-03-27 21:39:10    source virtual-python-env/bin/activate
+ 1989  2023-03-27 21:39:20    python Student1/prog-test.py 
+ 1990  2023-03-27 21:39:41    vim Student1/prog-test.py 
+ 1991  2023-03-27 21:40:00    python Student1/prog-test.py 
