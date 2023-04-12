@@ -109,13 +109,14 @@ def run(r_source, r_save_txt=False, r_save_conf=False):
         #     pred = apply_classifier(pred, modelc, img, im0s)
 
         # Process detections
-        webcam=False
+        # webcam=False
         for i, det in enumerate(pred):  # detections per image
             print("Inside Process Detections")
-            if webcam:  # batch_size >= 1
-                p, s, im0, frame = path[i], '%g: ' % i, im0s[i].copy(), dataset.count
-            else:
-                p, s, im0, frame = path, '', im0s, getattr(dataset, 'frame', 0)
+            im0=im0s
+            # if webcam:  # batch_size >= 1
+            #     p, s, im0, frame = path[i], '%g: ' % i, im0s[i].copy(), dataset.count
+            # else:
+            #     p, s, im0, frame = path, '', im0s, getattr(dataset, 'frame', 0)
 
             # p = Path(p)  # to Path
             # save_path = str(save_dir / p.name)  # img.jpg
