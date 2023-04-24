@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
-from detection_function import run
+from detection_function_class import Detection
 import math
 from PIL import Image
 
 # Initialize Object Detection
-# od = ObjectDetection()
+dt = Detection()
 
 cap = cv2.VideoCapture("dataset/videos/los_angeles_small.mp4")
 
@@ -29,7 +29,7 @@ while True:
 # Portion to be manipulated starts here -----------------
 
     # Detect objects on frame
-    boxes = run(r_source=frame)
+    boxes = dt.detect(source=frame)
     for box in boxes:
         print(box)
         # (x, y, w, h) = box
